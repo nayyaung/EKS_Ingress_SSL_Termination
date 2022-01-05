@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: echo-pod
+    app.kubernetes.io/name: echo-pod
+  name: echo-pod
+spec:
+  ports:
+  - name: http
+    nodePort: 30162
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: echo-pod
+  type: NodePort
